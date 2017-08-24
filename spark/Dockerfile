@@ -23,7 +23,8 @@ RUN mkdir -p /opt && \
     echo Spark ${spark_ver} installed in /opt
 
 # Add the GCS connector.
-RUN cd /opt/spark/lib && \
+RUN mkdir -p /opt/spark/lib && \
+    cd /opt/spark/lib && \
     curl -O https://storage.googleapis.com/hadoop-lib/gcs/gcs-connector-latest-hadoop2.jar
 
 # Add the MongoDB connector.
