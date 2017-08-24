@@ -15,9 +15,9 @@
 # This image relies on the zeppelin-build image to get the zeppelin
 # binaries built, and the Makefile to put it in this directory.
 
-FROM gcr.io/google_containers/spark-base:latest
+FROM srfrnk/spark-base:latest
 
-ENV ZEPPELIN_VER  0.5.6-incubating
+ENV ZEPPELIN_VER  0.7.0
 
 RUN mkdir -p /opt && \
     cd /opt && \
