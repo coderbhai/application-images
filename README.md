@@ -9,7 +9,7 @@ any applications that require custom built Docker images.
 Each directory should include:
 * a top-level README describing the contents
 * a Makefile with a `make push` rule that will push to
-  `gcr.io/google_containers` (it has to be something that @k8s-oncall can push
+  `gcr.io/draftspot-177614` (it has to be something that @k8s-oncall can push
   to).
 
 ## Contributing

@@ -25,6 +25,10 @@ RUN mkdir -p /opt && \
 RUN cd /opt/spark/lib && \
     curl -O https://storage.googleapis.com/hadoop-lib/gcs/gcs-connector-latest-hadoop2.jar
 
+# Add the MongoDB connector.
+RUN cd /opt/spark/lib && \
+    curl -O http://repo1.maven.org/maven2/org/mongodb/spark/mongo-spark-connector_2.10/2.2.0/mongo-spark-connector_2.10-2.2.0.jar
+
 # if numpy is installed on a driver it needs to be installed on all
 # workers, so install it everywhere
 RUN apt-get update && \

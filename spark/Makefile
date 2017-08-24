@@ -14,29 +14,29 @@ TAG = 1.5.2_v1
 ZEPPELIN_TAG = v0.5.6_v1
 
 spark:
-	docker build -t gcr.io/google_containers/spark .
-	docker tag gcr.io/google_containers/spark gcr.io/google_containers/spark:$(TAG)
+	docker build -t gcr.io/draftspot-177614/spark .
+	docker tag gcr.io/draftspot-177614/spark gcr.io/draftspot-177614/spark:$(TAG)
 
 # This target is useful when needing to use an unreleased version of Zeppelin
 zeppelin-build:
-	docker build -t gcr.io/google_containers/zeppelin-build zeppelin-build
-	docker tag -f gcr.io/google_containers/zeppelin-build gcr.io/google_containers/zeppelin-build:$(ZEPPELIN_TAG)
+	docker build -t gcr.io/draftspot-177614/zeppelin-build zeppelin-build
+	docker tag -f gcr.io/draftspot-177614/zeppelin-build gcr.io/draftspot-177614/zeppelin-build:$(ZEPPELIN_TAG)
 
 zeppelin:
-	docker build -t gcr.io/google_containers/zeppelin zeppelin
-	docker tag -f gcr.io/google_containers/zeppelin gcr.io/google_containers/zeppelin:$(ZEPPELIN_TAG)
+	docker build -t gcr.io/draftspot-177614/zeppelin zeppelin
+	docker tag -f gcr.io/draftspot-177614/zeppelin gcr.io/draftspot-177614/zeppelin:$(ZEPPELIN_TAG)
 
 push-spark: spark
-	gcloud docker push gcr.io/google_containers/spark
-	gcloud docker push gcr.io/google_containers/spark:$(TAG)
+	gcloud docker push gcr.io/draftspot-177614/spark
+	gcloud docker push gcr.io/draftspot-177614/spark:$(TAG)
 
 push-zeppelin: zeppelin
-	gcloud docker push gcr.io/google_containers/zeppelin
-	gcloud docker push gcr.io/google_containers/zeppelin:$(ZEPPELIN_TAG)
+	gcloud docker push gcr.io/draftspot-177614/zeppelin
+	gcloud docker push gcr.io/draftspot-177614/zeppelin:$(ZEPPELIN_TAG)
 
 clean:
-	docker rmi gcr.io/google_containers/spark:$(TAG) || :
-	docker rmi gcr.io/google_containers/spark || :
+	docker rmi gcr.io/draftspot-177614/spark:$(TAG) || :
+	docker rmi gcr.io/draftspot-177614/spark || :
 
-	docker rmi gcr.io/google_containers/zeppelin:$(ZEPPELIN_TAG) || :
-	docker rmi gcr.io/google_containers/zeppelin || :
+	docker rmi gcr.io/draftspot-177614/zeppelin:$(ZEPPELIN_TAG) || :
+	docker rmi gcr.io/draftspot-177614/zeppelin || :
